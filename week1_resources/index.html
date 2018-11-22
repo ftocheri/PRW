@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Week 1 - Plugin</title>
+<link rel="stylesheet" href="css/style.css" media="screen" />
+</head>
+<body>
+    <p>My Notification Plugin</p>
+    <div id="buttonList">
+    <button id="alertButton">Alert</button>
+    <button id="successButton">Success</button>
+    <button id="errorButton">Error</button>
+    <button id="warningButton">Warning</button>
+    </div>
+
+
+    <div class="notify alert">
+        <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Alert!</strong> This is not a test.
+    </div>
+
+    <div class="notify success">
+        <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Success!</strong> Very successful of you.
+    </div>
+
+    <div class="notify error">
+        <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Error!</strong> Please remain calm. You will be approached momentarily.
+    </div>
+
+    <div class="notify warning">
+        <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Warning!</strong> Do not look behind you.
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/myPlugin.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
