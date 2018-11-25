@@ -1,10 +1,17 @@
+//create the array to hold for local storage
 let articleList = [];
+//check if the local storage have values already
 if (JSON.parse(localStorage.getItem('article')) != null) {
+    //if it does, save the variable to the storage values
     articleList = JSON.parse(localStorage.getItem('article'));
 }
+//function to run on the window load
 window.onload = function () {
+    //save the localstorage data to a new variable
     let data = JSON.parse(this.localStorage.getItem('article'));
+    //for each item within my storage
     $.each(data, function (i, item) {
+        //create the element that will show the saved recipe
         let myList = $('#myList')
         imgNum = Math.floor(Math.random() * 9)
         img = '<img src="images/' + imgNum + '.jpg" alt="Recipe Image">'
@@ -24,6 +31,7 @@ window.onload = function () {
     });
 }
 
+//fetch function for the data stored in my JSON file
 fetch('https://api.myjson.com/bins/gg3eh')
     .then(response => {
         if (response.ok) {
@@ -56,6 +64,7 @@ fetch('https://api.myjson.com/bins/gg3eh')
     })
     .catch(error => console.log('error is', error))
 
+//function for the changing of my star rating system
 $(document).ready(function () {
     // Check Radio-box
     $(".rating input:radio").attr("checked", false);
@@ -65,6 +74,9 @@ $(document).ready(function () {
         $(this).parent().addClass('checked');
     });
 });
+//function to save data from my form
+//this will save the item to my localstorage
+//& create a new article element with the formatted data
 function myList() {
     let r;
     let radios = document.getElementsByName('rating');
@@ -96,20 +108,26 @@ function myList() {
         "</p></article>"
     );
 
+
+    //section that will change my localstorage
     let entry = {};
     entry.id = arrayLength;
     entry.name = $("#rName").val();
     entry.desc = $("#rDesc").val();
     entry.cat = $("#rCat").val();
     entry.rate = r;
+    //add the new item to my array
     articleList.push(entry);
-    console.log(entry);
+    //console.log(entry);
+    //add that array list to the localstorage
     localStorage.setItem('article', JSON.stringify(articleList));
 }
+//function to clear the form
 function formClear() {
     $("#rName").val("");
     $("#rDesc").val("");
     $("#rCat").val("");
+    //seperate area to control my radio buttons
     let radios = document.getElementsByName('rating');
     for (let i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
@@ -142,12 +160,13 @@ function assignUpdate() {
         $("#rName").focus();
     }
 }
-
+//function for displaying the custom error message
 function displayError(id) {
     document.getElementById(id).style.display = "block";
     document.getElementById(id).innerHTML = document.getElementById(id).getAttribute("name") + " can not be left blank.";
     return false;
 }
+//function to clear the errormessage when it needs to be cleared
 function clearError() {
     document.getElementById('nMessage').style.display = "none";
     document.getElementById('dMessage').style.display = "none";
@@ -155,6 +174,8 @@ function clearError() {
     document.getElementById('rMessage').style.display = "none";
 }
 
+//function to delete the item from the page
+//also deletes custom items from the local storage
 function deleteMe(entry) {
     $(entry).parents("article").remove();
     //console.log($(entry).parents('article').attr("id"));
