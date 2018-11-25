@@ -1,0 +1,151 @@
+body {
+    background-color: rgba(0, 128, 0, 0.7);
+}
+.bg-image {
+    background-image: url("http://www.foodwise.com.au/wp-content/themes/foodwise/images/bg-6.jpg");
+    min-height: 490px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        margin-top: 20px;
+    }
+    button:hover {
+        opacity: 1;
+    }
+    .rLabel {
+        margin-bottom: 20px;
+        margin-left: 8px;
+        font-size: 18px;
+    }   
+}
+
+
+input[type=text] {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+#myList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 50px 0;
+    color: black;
+    article {
+        max-width: 350px;
+        max-height: 500px;
+        flex:1;
+        background-color: rgba(236, 192, 138, 0.8);
+        border-radius: .5em;
+        box-shadow: 0 0 10px rgb(236, 192, 138);
+        border-left: 5px solid rgb(236, 192, 138);
+        margin-right: 1em;
+        margin-left: 1em;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        padding: 20px;
+    }
+    img {
+        max-width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-top: -20px;
+    }
+    h4 {
+        text-align: center;
+    }
+}
+
+.rating {
+    float:left;
+}
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+.message {
+    color: #FF0000;
+    font-size: small;
+    font-weight: bold;
+    white-space: pre;
+    float: right;
+    margin-bottom: 0px;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+.remove {
+    font-size: 24px;
+    color: white;
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+.remove:hover {
+    color: rgb(233, 111, 111);
+}

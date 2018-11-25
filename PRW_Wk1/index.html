@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Week 1 - Plugin</title>
+<link rel="stylesheet" href="css/main.css" media="screen" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+</head>
+<body>
+<div class="bg-image">
+    <form class="container" method="post">
+        <h3>Add A Recipe!</h3>
+        <div id="text-fields">
+            <label id="nMessage" class="message" for="rName" name="Recipe Name"></label>
+            <input type="text" class="addForm" id='rName' placeholder="Recipe Name" required />
+            <label id="dMessage" class="message" for="rDesc" name="Description"></label>
+            <input type="text" class="addForm" id="rDesc" placeholder="Description" required />
+            <label id="cMessage" class="message" for="rCat" name="Category"></label>
+            <input type="text" class="addForm" id="rCat" placeholder="Category" required />
+        </div>
+        <label id="rMessage" class="message" for="rRate" name="Rating"></label>
+        <fieldset class="rating" id="rRate" required>
+                <legend>Recipe Rating:</legend>
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+        </fieldset>
+        <div id="aBtn">
+            <button type="button" onclick="assignUpdate();">Add Recipe</button>
+        </div>
+    </form>
+</div>
+
+    <div id="myList" role="main">
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="build/main.bundle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
