@@ -9,7 +9,7 @@ body {
 
 .bg-image {
   background-image: url("http://www.foodwise.com.au/wp-content/themes/foodwise/images/bg-6.jpg");
-  min-height: 490px;
+  min-height: 520px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,7 +61,7 @@ input[type=text] {
   color: black; }
   #myList article {
     max-width: 350px;
-    max-height: 500px;
+    max-height: 600px;
     flex: 1;
     background-color: rgba(236, 192, 138, 0.8);
     border-radius: .5em;
