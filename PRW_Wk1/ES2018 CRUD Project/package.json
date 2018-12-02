@@ -5,10 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass --include-path scss scss/main.scss css/main.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\",",
-    "babel": "babel --presets es2015 js/main.js -o build/main.bungle.js",
-    "start": "http-server",
-    "build": "babel --presets es2015 src -d dist"
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "author": "Forrest Tocheri",
   "license": "ISC",
