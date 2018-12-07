@@ -7,24 +7,30 @@ class Bills extends Component {
         super(props)
 
         this.state = {
-            exList: [
-                {
-                    item: "Tacos",
-                    amount: "$3.50",
-                }
-            ],
+            searchString: "",
+            exList: []
         }
         this.addItem = this.addItem.bind(this)
         this.changeItem = this.changeItem.bind(this)
         this.changeAmount = this.changeAmount.bind(this)
         this.removeItem = this.removeItem.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
         if (localStorage.getItem('exList')) {
             let exList = JSON.parse(localStorage.getItem('exList'))
-            this.setState({ exList: exList })
+            this.setState({ 
+                exList: exList
+            })
+            this.refs.search.focus()
         }
+    }
+    
+    handleChange() {
+        this.setState({
+            searchString: this.refs.search.value
+        })
     }
 
     changeItem(e) {
@@ -69,6 +75,12 @@ class Bills extends Component {
         let myItems = this.state.exList.map((val, key) => {
             return <ItemList val={val} key={key} id={key} delMe={() => this.removeItem(key)} />
         })
+        let search = this.state.searchString.trim().toLowerCase()
+        if(search.length > 0) {
+            myItems = myItems.filter(function(item) {
+                return item.props.val.item.match(search)
+            })
+        }
         return (
             <main className="ItemList">
                 <section className="add">
@@ -85,7 +97,8 @@ class Bills extends Component {
                 <section className="newList">
                     <h2>Current Item List</h2>
                     <article className="content">
-                        <ul className="expenseCont">{myItems}</ul>
+                    <input type="text" className="search" value={this.state.searchString} ref="search" onChange={this.handleChange} placeholder="Search..." />
+                    <ul className="expenseCont">{myItems}</ul>
                     </article>
                 </section>
             </main>

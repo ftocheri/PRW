@@ -74,11 +74,22 @@ ul {
   float: left;
   margin-right: 0;
   padding-left: 20px;
+  padding-right: 0;
 }
 .amount {
   display: inline-block;
-  text-align: right;
+  text-align: center;
   width: calc(16% - 5em);
+}
+.eBtn {
+  float: right;
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(130, 147, 245);
 }
 .dBtn {
   float: right;
@@ -90,7 +101,6 @@ ul {
   border: none;
   background-color: rgba(233, 89, 89, 0.767);
 }
-
 nav {
   position: relative;
   min-height: 30px;
@@ -100,4 +110,9 @@ nav {
 }
 .nLink {
   margin-right: 30px;
+}
+.search {
+  min-width: 200px;
+  min-height: 30px;
+  margin-bottom: 20px;
 }
