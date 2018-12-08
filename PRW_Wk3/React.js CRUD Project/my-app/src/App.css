@@ -116,3 +116,7 @@ nav {
   min-height: 30px;
   margin-bottom: 20px;
 }
+.chart-container {
+  width: 600px;
+  margin: 0 auto;
+}

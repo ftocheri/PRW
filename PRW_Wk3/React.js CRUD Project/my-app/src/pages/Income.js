@@ -62,7 +62,7 @@ class Income extends Component {
     }
 
     editItem(val) {
-        console.log(val.source)
+        console.log(val)
     }
 
     render() {
