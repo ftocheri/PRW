@@ -42,7 +42,14 @@ class Overview extends Component {
         return total
     }
     render() {
-        let i
+        let bPointOne = this.addToPrevious(dataSource[1], dataSource[0])
+        let bPointTwo = this.addToPrevious(dataSource[2], bPointOne)
+        let bPointThree = this.addToPrevious(dataSource[3], bPointTwo)
+        let bPointFour = this.addToPrevious(dataSource[4], bPointThree)
+        let iPointOne = this.addToPrevious(otherDataSource[1], otherDataSource[0])
+        let iPointTwo = this.addToPrevious(otherDataSource[2], iPointOne)
+        let iPointThree = this.addToPrevious(otherDataSource[3], iPointTwo)
+        let iPointFour = this.addToPrevious(otherDataSource[4], iPointThree)
         return (
             <div className={"chart-container"}>
                 <Chart
@@ -54,10 +61,10 @@ class Overview extends Component {
                         ['x', 'Income', 'Expenses'],
                         [0,0,0],
                         [1,dataSource[0], otherDataSource[0]],
-                        [2,this.addToPrevious(dataSource[1],dataSource[0]),this.addToPrevious(otherDataSource[1],otherDataSource[0])],
-                        [3,this.addToPrevious(dataSource[2],dataSource[1]),this.addToPrevious(otherDataSource[2],otherDataSource[1])],
-                        [4,this.addToPrevious(dataSource[3],dataSource[2]),this.addToPrevious(otherDataSource[3],otherDataSource[2])],
-                        [5,this.addToPrevious(dataSource[4],dataSource[3]),this.addToPrevious(otherDataSource[4],otherDataSource[3])],
+                        [2,bPointOne, iPointOne],
+                        [3,bPointTwo, iPointTwo],
+                        [4,bPointThree, iPointThree],
+                        [5,bPointFour, iPointFour],
                     ]}
                     options={{
                         hAxis: {
