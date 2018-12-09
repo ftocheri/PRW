@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import IncomeList from '../components/IncomeList'
 import { FaPlus } from 'react-icons/fa'
+import { FaEdit } from 'react-icons/fa'
 
 class Income extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Income extends Component {
 
         this.state = {
             iList: [],
+            location: ""
         }
         this.addItem = this.addItem.bind(this)
         this.changeItem = this.changeItem.bind(this)
@@ -61,8 +63,26 @@ class Income extends Component {
         localStorage.setItem('iList', JSON.stringify(iList))
     }
 
-    editItem(val) {
-        console.log(val)
+    editItem(key) {
+        let iList = this.state.iList
+        document.getElementById("myForm").style.display = "block"
+        document.getElementById('eIncome').value = key.source;
+        document.getElementById('eAmount').value = key.total;
+        for(let i=0; i < iList.length; i++) {
+            if(iList[i].source == key.source && iList[i].total == key.total) {
+                this.state.location = i
+            }
+        }
+    }
+
+    updateItem() {
+        let iList = this.state.iList
+        let location = this.state.location
+        let editSource = document.getElementById('eIncome').value
+        let editAmount = document.getElementById('eAmount').value
+        this.state.iList[location] = ({'source': editSource, 'total': editAmount})
+        this.setState({iList: this.state.iList})
+        localStorage.setItem('iList', JSON.stringify(iList))
     }
 
     render() {
@@ -87,6 +107,14 @@ class Income extends Component {
                     <article className="content">
                         <ul className="expenseCont">{myItems}</ul>
                     </article>
+                </section>
+                <section className="form-popup" id="myForm">
+                    <form className="form-container">
+                        <h2>Edit</h2>
+                        <input type="text" id="eIncome" name="income" placeholder="Income Source" onChange={this.changeItem} />
+                        <input type="text" id="eAmount" name="amount" placeholder="Income Amount" onChange={this.changeAmount} />
+                        <button type="submit" className="aBtn" onClick= {() => this.updateItem()}><FaEdit /></button>
+                    </form>
                 </section>
             </main>
         )
