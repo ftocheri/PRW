@@ -67,6 +67,7 @@ class Income extends Component {
         let iList = this.state.iList
         document.getElementById("myForm").style.display = "block"
         document.getElementById('eIncome').value = key.source;
+        key.total = key.total.slice(1);
         document.getElementById('eAmount').value = key.total;
         for(let i=0; i < iList.length; i++) {
             if(iList[i].source == key.source && iList[i].total == key.total) {
@@ -78,9 +79,21 @@ class Income extends Component {
     updateItem() {
         let iList = this.state.iList
         let location = this.state.location
-        let editSource = document.getElementById('eIncome').value
-        let editAmount = document.getElementById('eAmount').value
-        this.state.iList[location] = ({'source': editSource, 'total': editAmount})
+        let uSource = document.getElementById('eIncome').value
+        let uTotal = document.getElementById('eAmount').value
+        if (uSource === null || uSource == "") {
+            alert('Please enter the income source.')
+            return false
+        }
+        if (uTotal === 0) {
+            alert('Please enter a valid amount.')
+            return false
+        }
+        if (isNaN(uTotal)) {
+            alert('The amount must be a number.')
+            return false
+        }
+        this.state.iList[location] = ({'source': uSource, 'total': "$" + uTotal})
         this.setState({iList: this.state.iList})
         localStorage.setItem('iList', JSON.stringify(iList))
     }
