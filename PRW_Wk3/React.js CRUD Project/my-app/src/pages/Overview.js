@@ -73,7 +73,7 @@ class Overview extends Component {
                         vAxis: {
                             title: 'Amount',
                         },
-                        title: 'Last 5 Withdraws and Deposits'
+                        title: 'Last 5 Withdrawals and Deposits'
                     }}
                     rootProps={{ 'data-testid': '1' }}
                 />
