@@ -16,7 +16,9 @@ const TabNav = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'First'
+    tabBarOptions: {
+      activeTintColor: '#4D167C',
+    }
   }
 );
 

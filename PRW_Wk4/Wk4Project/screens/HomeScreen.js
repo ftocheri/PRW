@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import { Text, View, Button, Image, StyleSheet } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 class HomeScreen extends Component {
     static navigationOptions = {
         tabBarLabel: 'Home',
-        tabBarIcon: ({tintColor, focused}) => {
-            return (
-                <MaterialIcons
-                    name="change-history"
-                    size={26}
-                    style={{color: tintColor}}>
-                </MaterialIcons>
-            )
-        }
+        tabBarIcon: ({ tintColor }) => {
+            return (<Icon name="home" size={35} style={{color:tintColor}}/>);
+        },
     }
     render() {
         return(
@@ -29,7 +23,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        fontFamily: 'FontAwesome'
     },
     myBlue: {
         color: 'blue',
