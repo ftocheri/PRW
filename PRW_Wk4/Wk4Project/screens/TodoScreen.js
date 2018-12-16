@@ -23,11 +23,6 @@ class TodoScreen extends Component {
             return (<Icon name="list-alt" size={35} color="gray" style={{color:tintColor}}/>);
         },
     }
-    saveItems() {
-        let item = this.state.itemText
-        AsyncStorage.setItem('item', item)
-        this.setState({item:item, savedItem:item, item:''})
-    }
     componentWillMount() {
         this.getItems()
     }
@@ -83,7 +78,7 @@ class TodoScreen extends Component {
                     {myItems}
                 </ScrollView>
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>This is my footer...</Text>
+                    <Text style={styles.footerText}>List Created by Forrest Tocheri</Text>
                 </View>
             </View>
         );
@@ -138,5 +133,11 @@ const styles = StyleSheet.create({
         color: '#4D167C',
         fontWeight: 'bold',
         marginBottom: 15
+    },
+    footer: {
+        marginTop: 10,
+    },
+    footerText: {
+        fontStyle: 'italic'
     }
 });

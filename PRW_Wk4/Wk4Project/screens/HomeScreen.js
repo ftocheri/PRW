@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button, Image, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import HomeModal from '../components/modal'
 
 class HomeScreen extends Component {
     static navigationOptions = {
@@ -12,7 +13,8 @@ class HomeScreen extends Component {
     render() {
         return(
             <View style={styles.container}>
-            <Text>Home Page</Text>
+                <Text>Modal Page</Text>
+                <HomeModal />
             </View>
         );
     }
@@ -25,13 +27,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         fontFamily: 'FontAwesome'
-    },
-    myBlue: {
-        color: 'blue',
-        fontWeight: 'bold',
-        fontSize: 30,
-    },
-    myRed: {
-        color: 'red',
     },
 });
